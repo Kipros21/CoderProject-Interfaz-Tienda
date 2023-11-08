@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from entre_hilosycolores.views import saludar,saludar_con_fecha
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("saludo/",saludar),
+    path("saludar-fecha/",saludar_con_fecha),
 ]
