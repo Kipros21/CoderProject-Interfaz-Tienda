@@ -10,6 +10,9 @@ class PersonaNatural(models.Model):
     dni = models.CharField(max_length=32)
     fecha_nacimiento = models.DateField(null=True)
 
+    def __str__(self):
+        return f"{self.nombre}, {self.apellido}"
+
 class PersonaJuridica(models.Model):
     razon_social = models.CharField(max_length=256)
     numero_ruc = models.CharField(max_length=11)
@@ -20,6 +23,10 @@ class PersonaJuridica(models.Model):
     telefono = models.CharField(max_length=20, blank=True)
     email = models.EmailField(blank=True)
     
+    def __str__(self):
+        return f"{self.razon_social} ({self.numero_ruc})"
+
+
 class Producto(models.Model):
     codigo_producto = models.CharField(max_length=256)
     categoria = models.CharField(max_length=256)
@@ -29,13 +36,24 @@ class Producto(models.Model):
     precio = models.CharField(max_length=32)
     material = models.CharField(max_length=256)
 
+    def __str__(self):
+        return f"{self.codigo_producto} ({self.categoria},{self.precio})"
+
+
 class Servicios(models.Model):
     tipo_servicio = models.CharField(max_length=256)
     precio = models.CharField(max_length=32)
     duracion = models.CharField(max_length=32)
     lugar_servicio = models.CharField(max_length=256)
 
+    def __str__(self):
+        return f"{self.tipo_servicio} ({self.duracion},{self.precio})"
+
 class ProductoEntregado(models.Model):
     codigo_producto_entregado = models.CharField(max_length=256)
     fecha_entrega = models.DateTimeField(auto_now_add=True)
     estado_de_entrega = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.codigo_producto_entregado} ({self.estado_de_entrega})"
+

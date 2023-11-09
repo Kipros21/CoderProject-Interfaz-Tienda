@@ -25,5 +25,5 @@ urlpatterns = [
     path("interesados-ventas/",include("interesados_ventas.urls")),
     # path("saludo/",saludar),
     # path("saludar-fecha/",saludar_con_fecha),
-    # path("saludo-html/",saludar_con_html),
+    path("inicio/",saludar_con_html),
 ]
