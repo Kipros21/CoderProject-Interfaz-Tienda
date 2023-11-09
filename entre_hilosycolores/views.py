@@ -12,3 +12,16 @@ def saludar_con_fecha(request):
     saludo = f"Hola querido usuario, fecha: {hoy.day}/{hoy.month}"
     respuesta_http = HttpResponse(saludo)
     return respuesta_http
+
+def saludar_con_html(request):
+    contexto = {
+        "profesor": "Pedro",
+        "tutores": ["Mariano", "Ruben", "Luciano"],
+        "comision": 47730,
+    }
+    http_response = render(
+        request=request,
+        template_name="base.html",
+        context=contexto,
+    )
+    return http_response
