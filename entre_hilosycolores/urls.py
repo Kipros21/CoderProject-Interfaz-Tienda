@@ -17,13 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from entre_hilosycolores.views import saludar,saludar_con_fecha,saludar_con_html
+from entre_hilosycolores.views import saludar_con_html
 
 # Estas son las URLS generales del proyecto
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("interesados-ventas/",include("interesados_ventas.urls")),
-    # path("saludo/",saludar),
-    # path("saludar-fecha/",saludar_con_fecha),
-    path("inicio/",saludar_con_html),
+    path("inicio/",saludar_con_html, name="inicio"),
 ]
