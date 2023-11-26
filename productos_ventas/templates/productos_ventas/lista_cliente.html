@@ -41,11 +41,24 @@
       <td>{{ elemento.direccion }}</td>
       <td>{{ elemento.dni }}</td>
       <td>{{ elemento.fecha_nacimiento }}</td>
+      <td>
+        {% if user == cliente.creador %}
+        <a class="btn btn-link" href="{% url 'editar_cliente' cliente.id %}">editar</a>
+        {% endif%}
+      </td>
+      <td>
+        {% if user == cliente.creador %}
+        <form action="{% url 'eliminar_cliente' cliente.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="eliminar"/>
+        </form>
+        {% endif %} 
+      </td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
 <a href="{% url 'lista_cliente' %}">Lista Completa </a>
 
-<a href="{% url 'crear_cliente' %}">Crear PN</a>
+<a href="{% url 'crear_cliente' %}">Crear Cliente</a>
 {% endblock contenido %}

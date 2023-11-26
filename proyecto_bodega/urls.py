@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from proyecto_bodega.views import saludar_con_html
 
@@ -24,4 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("productos-ventas/",include("productos_ventas.urls")),
     path("inicio/",saludar_con_html, name="inicio"),
+    path("perfiles/", include("perfiles.urls")),
 ]
+# Agregamos esto al final, para incluir los archivos media: imagenes, etc
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

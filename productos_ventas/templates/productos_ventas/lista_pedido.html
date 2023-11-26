@@ -40,11 +40,24 @@
     <td>{{ elemento.direccion_pedido }}</td>
     <td>{{ elemento.telefono }}</td>
     <td>{{ elemento.email_contacto }}</td>
+    <td>
+      {% if user == pedido.creador %}
+      <a class="btn btn-link" href="{% url 'editar_pedido' pedido.id %}">editar</a>
+      {% endif%}
+    </td>
+    <td>
+      {% if user == pedido.creador %}
+      <form action="{% url 'eliminar_pedido' pedido.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-link" value="eliminar"/>
+      </form>
+      {% endif %} 
+    </td>
   </tr> 
   {% endfor %}
   </tbody>
 </table>
 <a href="{% url 'lista_pedido' %}">Lista Completa </a>
 
-<a href="{% url 'crear_pedido' %}">Crear Servicio</a>
+<a href="{% url 'crear_pedido' %}">Crear Pedido</a>
 {% endblock contenido %}
