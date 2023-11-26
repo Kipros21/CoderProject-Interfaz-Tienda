@@ -12,7 +12,7 @@ urlpatterns = [
     path("crear-producto/",crear_producto,name="crear_producto"),
     path("crear-pedido/",crear_pedido,name="crear_pedido"),
 
-    path("buscar-cliente",buscar_cliente,name="buscar_pn"),
+    path("buscar-cliente",buscar_cliente,name="buscar_cliente"),
     path("buscar-producto",buscar_producto,name="buscar_producto"),
     path("buscar-pedido",buscar_pedido,name="buscar_pedido"),
 ]
