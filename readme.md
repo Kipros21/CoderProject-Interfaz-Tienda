@@ -1,24 +1,21 @@
-# ProyectoTercerEntregable
+# Proyecto Final
 Se realizo el siguiente trabajo con fines de crear una pagina de registro de diferentes
-clientes ya sean personas naturales o empresas, productos y verificar si los productos han
-sido entregados.
-
-La siguiente pagina se mejorara en los proximos días para agregarle imagines y demás accesorios
-para una mejor visualización.
+clientes, productos, pedidos con esto también se puede eliminar y modificar.
 
 ## Pasos que se siguio para el desarrollo del proyecto:
-+ Crea una carpeta contenedora madre: entre_hilosycolores
-+ Se creo la aplicacion "interesados_ventas" para registrar los clientes y los productos
++ Crea una carpeta contenedora madre: proyecto_bodega
++ Se creo la aplicacion "productos_ventas" para registrar los clientes y los productos
 + Se creo los modelos de cada para que se importen a la base de datos
-+ Se creo las vistas y formas para las respectivas funciones que vamos a realizar (listar,crear,buscar)
++ Se creo las vistas y formas para las respectivas funciones que vamos a realizar (listar,crear,buscar,eliminar,editar) para formar el famoso CRUD 
 + Se creo las respectivos templates para cada URL que se va necesitar
-+ Finalmente se empezo a ordenar las URLs y poner importarlas en donde necesitemos 
++ Finalmente se empezo a ordenar las URLs y poner importarlas en donde necesitemos
++ Se creo la aplicacion "perfiles" para registrar los diferentes usuarios así como modificar su propio perfil
++ Finalmente se paso a testear la pagina web 
 + Se accede con el siguiente link:
 ```
 http://127.0.0.1:8000/inicio/
 ```
-
-## Acceder como user y password via:
+# Acceder como superuser y password via:
 + Acceder con user y password via:
 ```
 127.0.0.1:8000/admin/
@@ -26,4 +23,8 @@ http://127.0.0.1:8000/inicio/
 # Superusuario de pruebas
 username:admin
 contraseña:hilosycolores
+
+# Usario Creado
+username:cristhian
+contraseña:kipros21
 
