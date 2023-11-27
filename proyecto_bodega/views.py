@@ -10,3 +10,12 @@ def saludar_con_html(request):
         context=contexto,
     )
     return http_response
+
+def acerca_de_mi(request):
+    contexto = {}
+    http_response = render(
+        request=request,
+        template_name="acerca.html",
+        context=contexto,
+    )
+    return http_response

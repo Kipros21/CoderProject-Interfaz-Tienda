@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from proyecto_bodega.views import saludar_con_html
+from proyecto_bodega.views import saludar_con_html,acerca_de_mi
 
 # Estas son las URLS generales del proyecto
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path("productos-ventas/",include("productos_ventas.urls")),
     path("inicio/",saludar_con_html, name="inicio"),
     path("perfiles/", include("perfiles.urls")),
+    path("acerca-de-mi/",acerca_de_mi, name="acerca_de_mi"),
 ]
 # Agregamos esto al final, para incluir los archivos media: imagenes, etc
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
