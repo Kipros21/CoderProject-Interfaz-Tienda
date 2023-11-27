@@ -10,6 +10,8 @@
 </h1>
 
 <h3>PEDIDOS:</h3>
+<a href="{% url 'lista_pedido' %}">Lista Completa </a>
+<a href="{% url 'crear_pedido' %}">Crear Pedido</a>
 <br><br>
 <form action="{% url 'buscar_pedido' %}" method="post">
   {% csrf_token %}
@@ -57,7 +59,4 @@
   {% endfor %}
   </tbody>
 </table>
-<a href="{% url 'lista_pedido' %}">Lista Completa </a>
-
-<a href="{% url 'crear_pedido' %}">Crear Pedido</a>
 {% endblock contenido %}

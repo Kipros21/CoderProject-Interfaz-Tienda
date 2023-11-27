@@ -21,7 +21,7 @@ class ProductoFormulario(forms.Form):
 class PedidoFormulario(forms.Form):
     codigo_pedido = forms.CharField(required=True, max_length=256)
     tipo_pedido = forms.CharField(required=True, max_length=256)
-    lugar = forms.CharField(required=True, max_length=2)
+    lugar = forms.CharField(required=True, max_length=256)
     tipo_envio = forms.CharField(required=True, max_length=256)
     direccion_pedido = forms.CharField(required=True, max_length=32)
     telefono = forms.CharField(required=True, max_length=32)

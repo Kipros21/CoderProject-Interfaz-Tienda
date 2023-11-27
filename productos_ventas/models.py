@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cliente(models.Model):
@@ -9,6 +10,7 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=256)
     dni = models.CharField(max_length=32)
     fecha_nacimiento = models.DateField(null=True)
+    creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.nombre}, {self.apellido}"
@@ -21,6 +23,7 @@ class Producto(models.Model):
     forma = models.CharField(max_length=32,null=True)
     precio = models.CharField(max_length=32)
     material = models.CharField(max_length=256)
+    creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.codigo_producto} ({self.categoria},{self.precio})"
@@ -33,6 +36,7 @@ class Pedido(models.Model):
     direccion_pedido = models.CharField(max_length=256)
     telefono = models.CharField(max_length=20, blank=True)
     email_contacto = models.EmailField(blank=True)
+    creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
-        return f"{self.razon_social} ({self.numero_ruc})"
+        return f"{self.codigo_pedido} ({self.direccion_pedido},{self.email_contacto})"

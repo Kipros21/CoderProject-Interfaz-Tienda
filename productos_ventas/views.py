@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+
 from productos_ventas.forms import ClienteFormulario,PedidoFormulario,ProductoFormulario
 from productos_ventas.models import Cliente,Pedido,Producto
 #Creacion de vistas con funciones
@@ -21,7 +22,7 @@ def listar_cliente(request):
 
 def listar_pedido(request):
     contexto = {
-        "person_juridica": Pedido.objects.all(), 
+        "pedido": Pedido.objects.all(), 
     }
     http_response = render(
         request=request,
@@ -59,7 +60,7 @@ def crear_cliente(request):
             fecha_nacimiento = data["fecha_nacimiento"]
 
             # creo un cliente en memoria RAM
-            cliente = Cliente(nombre=nombre, apellido=apellido, email=email, telefono=telefono, direccion=direccion, dni=dni, fecha_nacimiento=fecha_nacimiento)
+            cliente = Cliente(nombre=nombre, apellido=apellido, email=email, telefono=telefono, direccion=direccion, dni=dni, fecha_nacimiento=fecha_nacimiento, creador=request.user)
             # Lo guardan en la Base de datos
             cliente.save()
             # Redirecciono al usuario a la lista clientes
@@ -93,7 +94,7 @@ def crear_producto(request):
             material = data["material"]
 
             # creo un producto en memoria RAM
-            producto = Producto(codigo_producto=codigo_producto, categoria=categoria, cantidad=cantidad, tamaño=tamaño, forma=forma, precio=precio, material=material)
+            producto = Producto(codigo_producto=codigo_producto, categoria=categoria, cantidad=cantidad, tamaño=tamaño, forma=forma, precio=precio, material=material,creador=request.user)
             # Lo guardan en la Base de datos
             producto.save()
             # Redirecciono al usuario a la lista productos
@@ -127,7 +128,7 @@ def crear_pedido(request):
             email_contacto = data["email_contacto"]
 
             # creo un pedido en la memoria RAM
-            producto = Pedido(codigo_pedido=codigo_pedido, tipo_pedido=tipo_pedido, lugar=lugar, tipo_envio=tipo_envio, direccion_pedido=direccion_pedido, telefono=telefono, email_contacto=email_contacto)
+            producto = Pedido(codigo_pedido=codigo_pedido, tipo_pedido=tipo_pedido, lugar=lugar, tipo_envio=tipo_envio, direccion_pedido=direccion_pedido, telefono=telefono, email_contacto=email_contacto,creador=request.user)
             # Lo guardan en la Base de datos
             producto.save()
             # Redirecciono al usuario a la lista de pedidos

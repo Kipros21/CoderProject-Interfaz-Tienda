@@ -14,16 +14,16 @@ urlpatterns = [
     path("crear-producto/",crear_producto,name="crear_producto"),
     path("crear-pedido/",crear_pedido,name="crear_pedido"),
 
-    path("buscar-cliente",buscar_cliente,name="buscar_cliente"),
-    path("buscar-producto",buscar_producto,name="buscar_producto"),
-    path("buscar-pedido",buscar_pedido,name="buscar_pedido"),
+    path("buscar-cliente/",buscar_cliente,name="buscar_cliente"),
+    path("buscar-producto/",buscar_producto,name="buscar_producto"),
+    path("buscar-pedido/",buscar_pedido,name="buscar_pedido"),
 
     path("eliminar-cliente/<int:id>/", eliminar_cliente, name="eliminar_cliente"),
     path("eliminar-producto/<int:id>/", eliminar_producto, name="eliminar_producto"),
     path("eliminar-pedido/<int:id>/", eliminar_pedido, name="eliminar_pedido"),
 
-    path("editar-cliente/<int:id>/", editar_cliente, name="eliminar_curso"),
-    path("editar-producto/<int:id>/", editar_producto, name="eliminar_curso"),
-    path("editar-pedido/<int:id>/", editar_pedido, name="eliminar_curso"),
+    path("editar-cliente/<int:id>/", editar_cliente, name="editar_curso"),
+    path("editar-producto/<int:id>/", editar_producto, name="editar_curso"),
+    path("editar-pedido/<int:id>/", editar_pedido, name="editar_curso"),
 
 ]
