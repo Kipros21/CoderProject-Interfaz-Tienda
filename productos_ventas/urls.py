@@ -22,8 +22,8 @@ urlpatterns = [
     path("eliminar-producto/<int:id>/", eliminar_producto, name="eliminar_producto"),
     path("eliminar-pedido/<int:id>/", eliminar_pedido, name="eliminar_pedido"),
 
-    path("editar-cliente/<int:id>/", editar_cliente, name="editar_curso"),
-    path("editar-producto/<int:id>/", editar_producto, name="editar_curso"),
-    path("editar-pedido/<int:id>/", editar_pedido, name="editar_curso"),
+    path("editar-cliente/<int:id>/", editar_cliente, name="editar_cliente"),
+    path("editar-producto/<int:id>/", editar_producto, name="editar_producto"),
+    path("editar-pedido/<int:id>/", editar_pedido, name="editar_pedido"),
 
 ]

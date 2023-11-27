@@ -5,7 +5,7 @@
 {% endblock titulo %}
 
 {% block contenido %}
-<h1 style="color:purple;">
+<h1 style="color:orange;">
   BIENVENIDO A LA BODEGA DE "DON PEPE"
 </h1>
 
@@ -47,12 +47,12 @@
           {% csrf_token %}
           <input type="submit" class="btn btn-link" value="eliminar"/>
         </form>           {% endcomment %}
-        {% if user == cliente.creador %}
+        {% if user == elemento.creador %}
         <a class="btn btn-link" href="{% url 'editar_cliente' elemento.id %}">editar</a>
         {% endif %}
       </td>
       <td>
-        {% if user == cliente.creador %}
+        {% if user == elemento.creador %}
         <form action="{% url 'eliminar_cliente' elemento.id %}" method="post">
           {% csrf_token %}
           <input type="submit" class="btn btn-link" value="eliminar"/>

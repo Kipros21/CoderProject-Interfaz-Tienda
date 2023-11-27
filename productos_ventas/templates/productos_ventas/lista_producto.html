@@ -43,13 +43,13 @@
     <td>{{ elemento.precio }}</td>
     <td>{{ elemento.material }}</td>
     <td>
-      {% if user == producto.creador %}
-      <a class="btn btn-link" href="{% url 'editar_producto' producto.id %}">editar</a>
+      {% if user == elemento.creador %}
+      <a class="btn btn-link" href="{% url 'editar_producto' elemento.id %}">editar</a>
       {% endif%}
     </td>
     <td>
-      {% if user == cliente.producto %}
-      <form action="{% url 'eliminar_producto' producto.id %}" method="post">
+      {% if user == elemento.creador %}
+      <form action="{% url 'eliminar_producto' elemento.id %}" method="post">
         {% csrf_token %}
         <input type="submit" class="btn btn-link" value="eliminar"/>
       </form>
